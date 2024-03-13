@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Welcome To Crop Recommendation System</title>
+    <meta name="viewport" content="width=device-width,intial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+
+<body>
+<header>
+  <nav>
+    <div class="logo">
+      <a href="#">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="logo" width="64" height="64">
+      </a>
+    </div>
+    <div>
+      <ul>
+        <li><a href="/index">Home</a></li>
+        <li class="logout">
+
+          <ul>
+            <li><a href="{{ url_for('logout') }}">Logout</a></li>
+          </ul>
+        </li>
+        <li><a href="/about">About</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+
+
+    <div class="container">
+        <div class="text">
+
+
+            <h1>CROP PREDICTOR</h1>
+            <div class ="slider"> <h3> Please Enter The Following Details </h3></div>
+        </div>
+
+        <div class="form">
+          <form method="post" action="/predict">
+                <label for="nitrogen">Enter ratio of nitrogen(lbs/a) in the soil:</label>
+                <input type="text" id="fname" name="nitrogen" class="nitrogen">
+                <br>
+                <br>
+                <label for="Phosphorous">Enter ratio of Phosphorous(lbs/a) in the soil:</label>
+                <input type="text" id="lname" name="Phosphorous" class="Phosphorous">
+                <br>
+                <br>
+                <label for="Potassium">Enter ratio of Potassium(lbs/a) in the soil:</label>
+                <input type="text" id="fname" name="Potassium" class="Potassium">
+                <br>
+                <br>
+                <label for="Temperature">Enter ratio of Temperature(°c) in the soil:</label>
+                <input type="text" id="lname" name="Temperature" class="Temperature">
+                <br>
+                <br>
+                <label for="Humidity">Enter ratio of Humidity(%) in the soil:</label>
+                <input type="text" id="fname" name="Humidity" class="Humidity">
+                <br>
+                <br>
+                <label for="ph">Enter PH  value of soil:</label>
+                <input type="text" id="lname" name="ph" class="ph">
+                <br>
+                <br>
+                <label for="Rainfall">Enter average amount of Rainfall(mm) of  around the field:</label>
+                <input type="text" id="fname" name="Rainfall" class="Rainfall">
+                <br>
+                <br>
+                <br>
+                <div class="bt" type="submit" target="blank">
+                     <button class="button"><h3>predict</h3></button>
+                </div>
+           </form>
+        </div>
+
+
+<div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <h3>Click Here To See Predicted Crop </h3>
+    </div>
+    <div class="flip-card-back">
+      {% if result %}
+        <p class="result">{{ result }}</p>
+      {% endif %}
+    </div>
+  </div>
+</div>
+<br>
+ <div class="card-container">
+      <div class="card nitrogen">
+        <h2>Nitrogen in Soil</h2>
+        <p>Nitrogen is a vital nutrient for plant growth and is often deficient in soil. It is essential for the formation of amino acids, which are the building blocks of proteins. </p>
+      </div>
+      <div class="card phosphorus">
+        <h2>Phosphorus in Soil</h2>
+        <p>Phosphorus is also a crucial nutrient for plant growth, and is necessary for cell division and energy transfer. It is often found in soil in an insoluble form, which makes it difficult for plants to access.</p>
+      </div>
+      <div class="card potassium">
+        <h2>Potassium in Soil</h2>
+        <p>Potassium is essential for plant growth and is necessary for the proper functioning of many plant processes, including photosynthesis and water regulation. It is often deficient in soil and is typically added through fertilizers.</p>
+      </div>
+    </div>
+
+    </div>
+
+
+	<footer>
+		<div class="footer-container">
+			<div class="left-section">
+				<p>&copy; Anandjogdand</p>
+			</div>
+			<div class="right-section">
+				<ul>
+					<li><a href="#">Home</a></li>
+					<li><a href="#">About</a></li>
+					<li><a href="#">Contact</a></li>
+				</ul>
+			</div>
+		</div>
+	</footer>
+
+
+
+
+
+
+
+
+</body>
+</html>
